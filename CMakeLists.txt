@@ -17,8 +17,12 @@ include(CTest)
 
 add_executable(a a.cu b.cu)
 set_property(TARGET a PROPERTY CUDA_SEPARABLE_COMPILATION ON)
-# set_property(TARGET a PROPERTY CUDA_RESOLVE_DEVICE_SYMBOLS ON)
 set_property(TARGET a PROPERTY CUDA_ARCHITECTURES 75-real 75-virtual)
 target_link_libraries(a PRIVATE ${CUDA_LIBRARIES})
+
+add_executable(add add.cu)
+set_property(TARGET add PROPERTY CUDA_SEPARABLE_COMPILATION ON)
+set_property(TARGET add PROPERTY CUDA_ARCHITECTURES 75-real 75-virtual)
+target_link_libraries(add PRIVATE ${CUDA_LIBRARIES})
 
 
